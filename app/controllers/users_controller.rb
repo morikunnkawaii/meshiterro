@@ -20,6 +20,10 @@ class UsersController < ApplicationController
     @post_images = @user.post_images
   end
 
+  def edit
+    @user = User.find(params[:id])
+  end
+
   private
 
   def user_params
