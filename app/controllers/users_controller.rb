@@ -15,6 +15,11 @@ class UsersController < ApplicationController
     end
   end
 
+  def show
+    @user = User.find(params[:id])
+    @user_images = @user.post_images
+  end
+  
   private
 
   def user_params
