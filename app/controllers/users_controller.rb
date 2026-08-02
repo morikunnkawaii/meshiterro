@@ -22,12 +22,21 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+    if @user != Current.user
+      redirect_to post_images_path
+    end
   end
 
   def update
+
     user = User.find(params[:id])
-    user.update(user_params)
-    redirect_to user_path(user.id)
+    unless user.id == Current.user.id
+      redirect_to post_images_path
+    end
+    
+    @user = User.find(params[:id])
+    @user.update(user_params)
+    redirect_to user_path(@user.id)
   end
   private
 
