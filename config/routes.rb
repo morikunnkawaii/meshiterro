@@ -22,5 +22,7 @@ Rails.application.routes.draw do
   # root "posts#index"
   namespace :admin do
     resource :session, only: [:new, :create, :destroy]
+    get'dashboards',to:'dashboards#index'
+    resources :users, only:[:destroy]
   end
 end
