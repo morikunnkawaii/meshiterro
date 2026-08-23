@@ -3,7 +3,7 @@ Rails.application.routes.draw do
     resources :post_comments, only: [:create, :destroy]
     resource :favorite, only: [:create, :destroy]
   end
-  resources :users, only: [:new, :create, :show, :edit, :update] , path_names: {new: 'sign_up'}
+  resources :users, only: [:new, :create, :show, :edit, :update]
   resources :passwords, param: :token
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
